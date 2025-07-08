@@ -54,9 +54,26 @@ sudo umount "${system_directory}"
 
 unlink "${system_image}"
 
+rm \
+	--force \
+	--recursive \
+	"${sysroot_directory}/lib/gcc"* \
+	"${sysroot_directory}/lib/debug" \
+	"${sysroot_directory}/lib/i18n" \
+	"${sysroot_directory}/lib/profile" \
+	"${sysroot_directory}/lib/security" \
+	"${sysroot_directory}/include/c++"
+
 cd "${sysroot_directory}/lib"
 
 find . -type l | xargs ls -l | grep '/lib/' | awk '{print "unlink "$9" && ln --symbolic $(basename "$11") $(basename "$9")"}'  | bash
+
+ln \
+	--symbolic \
+	--force \
+	--relative \
+	'./priv/lib'*'.so'* \
+	'./'
 
 echo "- Creating tarball at ${tarball_filename}"
 
