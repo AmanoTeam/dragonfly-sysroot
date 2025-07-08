@@ -22,7 +22,7 @@ if [ -f "${tarball_filename}" ]; then
 	exit '0'
 fi
 
-declare url='https://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.0.0_REL.iso.bz2'
+declare url='https://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-6.4.2_REL.iso.bz2'
 
 echo "- Fetching data from ${url}"
 

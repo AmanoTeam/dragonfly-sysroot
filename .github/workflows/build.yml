@@ -25,12 +25,12 @@ jobs:
     - name: Create release
       uses: softprops/action-gh-release@master
       with:
-        tag_name: v0.1
+        tag_name: v0.2
         name: DragonFly BSD sysroots
         files: ./*.xz*
-        draft: true
+        draft: false
         prerelease: false
         fail_on_unmatched_files: true
-        body: "* Initial release"
+        body: "* Update sysroot"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
